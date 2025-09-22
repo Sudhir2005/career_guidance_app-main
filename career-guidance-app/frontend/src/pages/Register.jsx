@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -14,19 +13,14 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const { data } = await axios.post("http://localhost:5000/api/auth/register", {
-        name,
-        email,
-        password,
-      });
+      // Simulate async registration process
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      console.log("User Registered:", data);
-      localStorage.setItem("token", data.token); // save JWT
-      setLoading(false);
-      navigate("/dashboard"); // redirect after success
-    } catch (err) {
-      console.error(err.response?.data || err.message);
-      alert(err.response?.data?.error || "Registration failed");
+      alert("Registration successful! (Simulation)");
+      navigate("/dashboard");
+    } catch {
+      alert("Registration failed!");
+    } finally {
       setLoading(false);
     }
   };

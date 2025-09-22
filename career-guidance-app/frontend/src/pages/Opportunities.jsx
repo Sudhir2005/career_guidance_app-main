@@ -2,7 +2,7 @@ import { Briefcase, FlaskConical, GraduationCap, Rocket } from "lucide-react";
 import { useState } from "react";
 
 export default function Opportunities() {
-  const [loading, setLoading] = useState(false);
+  const [loadingId, setLoadingId] = useState(null); // track which opportunity is loading
 
   const opportunities = [
     {
@@ -43,35 +43,13 @@ export default function Opportunities() {
     },
   ];
 
-  // handleApply function
-  const handleApply = async (opportunity) => {
-    try {
-      setLoading(true);
-      const token = localStorage.getItem("token"); // JWT stored after login
-      const res = await fetch("http://localhost:5000/api/opportunities/apply", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          title: opportunity.title,
-          type: opportunity.type,
-        }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        alert(`✅ Applied for ${opportunity.title}`);
-      } else {
-        alert(`❌ ${data.msg}`);
-      }
-    } catch (error) {
-      console.error(error);
-      alert("❌ Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+  // Simulate apply function without API call
+  const handleApply = (opportunity) => {
+    setLoadingId(opportunity.id);
+    setTimeout(() => {
+      alert(`✅ Applied for ${opportunity.title} (simulated)`); // FIXED
+      setLoadingId(null);
+    }, 1500); // simulate loading delay
   };
 
   return (
@@ -102,15 +80,17 @@ export default function Opportunities() {
             </div>
 
             {/* Description */}
-            <p className="mb-6 text-sm text-gray-600">{opportunity.description}</p>
+            <p className="mb-6 text-sm text-gray-600">
+              {opportunity.description}
+            </p>
 
             {/* CTA */}
             <button
               onClick={() => handleApply(opportunity)}
-              disabled={loading}
+              disabled={loadingId === opportunity.id}
               className="px-5 py-2 text-sm font-medium text-white transition rounded-lg shadow bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 disabled:opacity-50"
             >
-              {loading ? "Applying..." : "Apply Now →"}
+              {loadingId === opportunity.id ? "Applying..." : "Apply Now →"}
             </button>
           </div>
         ))}

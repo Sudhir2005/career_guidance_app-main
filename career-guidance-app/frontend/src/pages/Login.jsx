@@ -1,32 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 
 export default function Login() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-
-    try {
-      const { data } = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      });
-
-      console.log("Login Successful:", data);
-      localStorage.setItem("token", data.token); // save JWT
-      setLoading(false);
-      navigate("/dashboard"); // redirect after success
-    } catch (err) {
-      console.error(err.response?.data || err.message);
-      alert(err.response?.data?.error || "Login failed");
-      setLoading(false);
-    }
+    // Simulated delay for UI purposes only
+    setTimeout(() => setLoading(false), 1500);
   };
 
   return (
@@ -52,7 +36,7 @@ export default function Login() {
           Enter your credentials to access your magical portal
         </p>
 
-        <form className="space-y-5" onSubmit={handleLogin}>
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
             <label className="block mb-1 font-medium text-white/90">Email</label>
             <input
