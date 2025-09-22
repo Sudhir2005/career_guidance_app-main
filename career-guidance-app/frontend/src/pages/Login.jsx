@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulated delay for UI purposes only
-    setTimeout(() => setLoading(false), 1500);
+
+    // Simulated login
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    // Redirect directly to dashboard (simulation only)
+    navigate("/dashboard");
+    setLoading(false);
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-tr from-purple-700 via-pink-600 to-indigo-500">
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-tr from-teal-600 via-gray-700 to-teal-800">
       {loading && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/60">
           <img
@@ -33,7 +39,7 @@ export default function Login() {
           Welcome Back
         </h2>
         <p className="mb-8 text-center text-white/80">
-          Enter your credentials to access your magical portal
+          Enter your credentials to access your portal
         </p>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
@@ -44,7 +50,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
           </div>
@@ -56,14 +62,14 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 font-bold text-white transition-transform duration-300 shadow-lg bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 rounded-xl hover:scale-105"
+            className="w-full py-3 font-bold text-white transition-transform duration-300 shadow-lg bg-gradient-to-r from-teal-500 via-teal-600 to-gray-700 rounded-xl hover:scale-105"
           >
             Login
           </button>
@@ -71,7 +77,7 @@ export default function Login() {
 
         <p className="mt-6 text-center text-white/80">
           Don't have an account?{" "}
-          <Link to="/register" className="font-semibold text-white underline transition hover:text-yellow-300">
+          <Link to="/register" className="font-semibold text-white underline transition hover:text-teal-300">
             Register
           </Link>
         </p>

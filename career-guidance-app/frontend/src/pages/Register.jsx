@@ -12,21 +12,16 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      // Simulate async registration process
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Simulate registration process
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      alert("Registration successful! (Simulation)");
-      navigate("/dashboard");
-    } catch {
-      alert("Registration failed!");
-    } finally {
-      setLoading(false);
-    }
+    // Redirect directly to dashboard
+    navigate("/dashboard");
+    setLoading(false);
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-tr from-purple-700 via-pink-600 to-indigo-500">
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-tr from-teal-600 via-gray-700 to-teal-800">
       {loading && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/60">
           <img
@@ -45,7 +40,7 @@ export default function Register() {
           Create Account
         </h2>
         <p className="mb-8 text-center text-white/80">
-          Sign up to start your magical journey
+          Sign up to start your journey
         </p>
 
         <form className="space-y-5" onSubmit={handleRegister}>
@@ -56,7 +51,7 @@ export default function Register() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your full name"
-              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
           </div>
@@ -68,7 +63,7 @@ export default function Register() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
           </div>
@@ -80,14 +75,14 @@ export default function Register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 font-bold text-white transition-transform duration-300 shadow-lg bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 rounded-xl hover:scale-105"
+            className="w-full py-3 font-bold text-white transition-transform duration-300 shadow-lg bg-gradient-to-r from-teal-500 via-teal-600 to-gray-700 rounded-xl hover:scale-105"
           >
             Register
           </button>
@@ -95,7 +90,7 @@ export default function Register() {
 
         <p className="mt-6 text-center text-white/80">
           Already have an account?{" "}
-          <Link to="/login" className="font-semibold text-white underline transition hover:text-yellow-300">
+          <Link to="/login" className="font-semibold text-white underline transition hover:text-teal-300">
             Login
           </Link>
         </p>
