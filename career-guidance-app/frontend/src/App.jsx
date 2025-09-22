@@ -16,6 +16,7 @@ import Aichat from "./pages/Aichat";
 import EducationLevelSelector from "./pages/EducationLevelSelector";
 import ExploreColleges from "./pages/ExploreColleges";
 import ExploreCourses from "./pages/ExploreCourses";
+import Counselling from "./pages/Counselling";
 
 function App() {
   const location = useLocation();
@@ -50,6 +51,7 @@ function App() {
           <Route path="/education" element={<EducationLevelSelector />} />
           <Route path="/explore-colleges" element={<ExploreColleges />} />
           <Route path="/explore-courses" element={<ExploreCourses />} />
+          <Route path="/counselling" element={<Counselling />} />
 
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />

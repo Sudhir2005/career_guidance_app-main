@@ -69,9 +69,9 @@ export default function Dashboard() {
               </div>
             </Link>
 
-            {/* Extra Curricular Activities */}
+            {/* Counselling Details */}
             <Link
-              to="/extracurriculars"
+              to="/counselling"
               className="flex items-center p-4 bg-white shadow-md rounded-2xl hover:bg-gray-50"
             >
               <div className="p-3 mr-4 bg-red-100 rounded-full">
