@@ -47,13 +47,15 @@ export default function Opportunities() {
   const handleApply = (opportunity) => {
     setLoadingId(opportunity.id);
     setTimeout(() => {
-      alert(`✅ Applied for ${opportunity.title} (simulated)`); // FIXED
+      alert(`✅ Applied for ${opportunity.title} (simulated)`);
       setLoadingId(null);
     }, 1500); // simulate loading delay
   };
 
   return (
-    <div className="p-6 mx-auto max-w-7xl">
+    <div className="p-6 pb-24 mx-auto max-w-7xl">
+      {/* Added pb-24 for spacing from mobile navbar */}
+
       <h2 className="mb-8 text-3xl font-bold text-gray-800">✨ Opportunities</h2>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -88,7 +90,7 @@ export default function Opportunities() {
             <button
               onClick={() => handleApply(opportunity)}
               disabled={loadingId === opportunity.id}
-              className="px-5 py-2 text-sm font-medium text-white transition rounded-lg shadow bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 disabled:opacity-50"
+              className="px-5 py-2 text-sm font-medium text-white transition rounded-lg shadow bg-gradient-to-r from-teal-500 to-gray-400 hover:opacity-90 disabled:opacity-50"
             >
               {loadingId === opportunity.id ? "Applying..." : "Apply Now →"}
             </button>

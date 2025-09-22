@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Loader2, FileDown, GraduationCap, Briefcase, Star, Rocket } from "lucide-react";
+import {
+  Loader2,
+  FileDown,
+  GraduationCap,
+  Briefcase,
+  Star,
+  Rocket,
+} from "lucide-react";
 
 export default function ResumeBuilder() {
   const [formData, setFormData] = useState({
@@ -32,21 +39,40 @@ export default function ResumeBuilder() {
     setLoading(true);
 
     try {
-     const payload = {
-  ...formData,
-  skills: formData.skills ? formData.skills.split(",").map(s => s.trim()) : [],
-  education: formData.education ? [{ degree: formData.education, institution: "", year: "" }] : [],
-  experience: formData.experience ? [{ role: formData.experience, company: "", duration: "", details: "" }] : [],
-  projects: formData.projects ? formData.projects.split(";").map(p => ({ title: p.trim(), description: "" })) : [],
-  resumeType,
-};
+      const payload = {
+        ...formData,
+        skills: formData.skills
+          ? formData.skills.split(",").map((s) => s.trim())
+          : [],
+        education: formData.education
+          ? [{ degree: formData.education, institution: "", year: "" }]
+          : [],
+        experience: formData.experience
+          ? [
+              {
+                role: formData.experience,
+                company: "",
+                duration: "",
+                details: "",
+              },
+            ]
+          : [],
+        projects: formData.projects
+          ? formData.projects
+              .split(";")
+              .map((p) => ({ title: p.trim(), description: "" }))
+          : [],
+        resumeType,
+      };
 
-
-      const response = await fetch("http://localhost:5000/api/resume/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/resume/generate",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -69,16 +95,19 @@ export default function ResumeBuilder() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-100">
-      <div className="w-full max-w-3xl p-10 bg-white border border-indigo-100 shadow-2xl rounded-3xl">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-3xl p-10 bg-white border border-gray-300 shadow-2xl rounded-3xl">
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-extrabold text-indigo-700">✨ Build Your Resume</h1>
+          <h1 className="text-4xl font-extrabold text-teal-600">
+            ✨ Build Your Resume
+          </h1>
           <p className="mt-3 text-gray-600">
             A modern tool to create a professional resume in minutes.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-7">
+        {/* Added pb-24 so the button stays above navbar */}
+        <form onSubmit={handleSubmit} className="pb-24 space-y-7">
           {/* Basic Info */}
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="relative">
@@ -88,7 +117,7 @@ export default function ResumeBuilder() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder=" "
-                className="w-full p-4 border peer rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                className="w-full p-4 border peer rounded-xl bg-gray-50 focus:ring-2 focus:ring-teal-400 focus:outline-none"
                 required
               />
               <label className="absolute left-3 top-1.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base">
@@ -102,7 +131,7 @@ export default function ResumeBuilder() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder=" "
-                className="w-full p-4 border peer rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                className="w-full p-4 border peer rounded-xl bg-gray-50 focus:ring-2 focus:ring-teal-400 focus:outline-none"
                 required
               />
               <label className="absolute left-3 top-1.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base">
@@ -118,7 +147,7 @@ export default function ResumeBuilder() {
               value={formData.phone}
               onChange={handleChange}
               placeholder=" "
-              className="w-full p-4 border peer rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              className="w-full p-4 border peer rounded-xl bg-gray-50 focus:ring-2 focus:ring-teal-400 focus:outline-none"
             />
             <label className="absolute left-3 top-1.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base">
               Phone Number
@@ -126,8 +155,8 @@ export default function ResumeBuilder() {
           </div>
 
           {/* Education */}
-          <div className="p-5 border-l-4 border-indigo-500 rounded-lg bg-indigo-50">
-            <div className="flex items-center gap-2 mb-2 font-semibold text-indigo-700">
+          <div className="p-5 border-l-4 border-teal-500 rounded-lg bg-gray-50">
+            <div className="flex items-center gap-2 mb-2 font-semibold text-teal-600">
               <GraduationCap className="w-5 h-5" /> Education
             </div>
             <textarea
@@ -136,7 +165,7 @@ export default function ResumeBuilder() {
               onChange={handleChange}
               maxLength={maxChars.education}
               placeholder="E.g., B.Tech in Computer Science, XYZ University, 2020"
-              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
               rows="3"
             />
             <p className="mt-1 text-xs text-right text-gray-500">
@@ -145,8 +174,8 @@ export default function ResumeBuilder() {
           </div>
 
           {/* Experience */}
-          <div className="p-5 border-l-4 border-purple-500 rounded-lg bg-purple-50">
-            <div className="flex items-center gap-2 mb-2 font-semibold text-purple-700">
+          <div className="p-5 border-l-4 border-teal-400 rounded-lg bg-gray-50">
+            <div className="flex items-center gap-2 mb-2 font-semibold text-teal-600">
               <Briefcase className="w-5 h-5" /> Work Experience
             </div>
             <textarea
@@ -155,7 +184,7 @@ export default function ResumeBuilder() {
               onChange={handleChange}
               maxLength={maxChars.experience}
               placeholder="E.g., Frontend Developer at ABC Corp (2021–2023)"
-              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-purple-400 focus:outline-none"
+              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
               rows="3"
             />
             <p className="mt-1 text-xs text-right text-gray-500">
@@ -164,8 +193,8 @@ export default function ResumeBuilder() {
           </div>
 
           {/* Skills */}
-          <div className="p-5 border-l-4 rounded-lg border-amber-500 bg-amber-50">
-            <div className="flex items-center gap-2 mb-2 font-semibold text-amber-700">
+          <div className="p-5 border-l-4 border-teal-300 rounded-lg bg-gray-50">
+            <div className="flex items-center gap-2 mb-2 font-semibold text-teal-600">
               <Star className="w-5 h-5" /> Skills
             </div>
             <textarea
@@ -174,7 +203,7 @@ export default function ResumeBuilder() {
               onChange={handleChange}
               maxLength={maxChars.skills}
               placeholder="E.g., JavaScript, React, Node.js, MongoDB"
-              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-amber-400 focus:outline-none"
+              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
               rows="2"
             />
             <p className="mt-1 text-xs text-right text-gray-500">
@@ -183,8 +212,8 @@ export default function ResumeBuilder() {
           </div>
 
           {/* Projects */}
-          <div className="p-5 border-l-4 border-green-500 rounded-lg bg-green-50">
-            <div className="flex items-center gap-2 mb-2 font-semibold text-green-700">
+          <div className="p-5 border-l-4 border-teal-200 rounded-lg bg-gray-50">
+            <div className="flex items-center gap-2 mb-2 font-semibold text-teal-600">
               <Rocket className="w-5 h-5" /> Projects
             </div>
             <textarea
@@ -193,7 +222,7 @@ export default function ResumeBuilder() {
               onChange={handleChange}
               maxLength={maxChars.projects}
               placeholder="Separate multiple projects with semicolon ';' e.g., Project A; Project B"
-              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none"
+              className="w-full p-4 bg-white border rounded-lg shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
               rows="3"
             />
             <p className="mt-1 text-xs text-right text-gray-500">
@@ -209,7 +238,7 @@ export default function ResumeBuilder() {
             <select
               value={resumeType}
               onChange={(e) => setResumeType(e.target.value)}
-              className="w-full p-3 border rounded-lg bg-gray-50 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              className="w-full p-3 border rounded-lg bg-gray-50 focus:ring-2 focus:ring-teal-400 focus:outline-none"
             >
               <option value="normal">✨ Normal</option>
               <option value="moderate">🌟 Moderate</option>
@@ -221,7 +250,7 @@ export default function ResumeBuilder() {
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center justify-center w-full gap-2 px-6 py-4 text-lg font-semibold text-white transition-all shadow-lg bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl hover:scale-105 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-70"
+            className="flex items-center justify-center w-full gap-2 px-6 py-4 text-lg font-semibold text-white transition-all shadow-lg bg-gradient-to-r from-teal-500 to-teal-600 rounded-xl hover:scale-105 hover:from-teal-600 hover:to-teal-700 disabled:opacity-70"
           >
             {loading ? (
               <>
@@ -229,7 +258,7 @@ export default function ResumeBuilder() {
               </>
             ) : (
               <>
-                <FileDown className="w-5 h-5" /> Download Resume
+                <FileDown className="z-10 w-5" /> Download Resume
               </>
             )}
           </button>

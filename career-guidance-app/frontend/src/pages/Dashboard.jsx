@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col min-h-screen bg-white">
       <div className="flex-1 p-6 overflow-y-auto">
         {/* Greeting */}
         <div className="mt-[-30px]">
-          <h2 className="text-xl font-semibold text-gray-800">Hello John,</h2>
+          <h2 className="text-xl font-semibold text-gray-800">Hello Yadhu Krishna,</h2>
           <p className="text-sm text-gray-500">How can I assist you today?</p>
         </div>
 
@@ -19,13 +19,13 @@ export default function Dashboard() {
           <div className="grid grid-cols-2 gap-4 mb-6">
             <Link
               to="/gallery"
-              className="py-3 text-center text-white transition bg-red-500 rounded-xl hover:bg-red-600"
+              className="py-3 text-center text-white transition bg-teal-500 rounded-xl hover:bg-teal-600"
             >
               Gallery Mode
             </Link>
             <Link
               to="/aichat"
-              className="py-3 text-center text-white transition bg-red-500 rounded-xl hover:bg-red-600"
+              className="py-3 text-center text-white transition bg-teal-500 rounded-xl hover:bg-teal-600"
             >
               Ask AI
             </Link>
@@ -39,8 +39,8 @@ export default function Dashboard() {
             to="/explore-colleges"
             className="flex items-center p-4 bg-white shadow-md rounded-2xl hover:bg-gray-50"
           >
-            <div className="p-3 mr-4 bg-red-100 rounded-full">
-              <FaRocket className="text-xl text-red-500" />
+            <div className="p-3 mr-4 bg-teal-100 rounded-full">
+              <FaRocket className="text-xl text-teal-600" />
             </div>
             <div>
               <h4 className="font-semibold text-gray-800">Explore Colleges</h4>
@@ -53,8 +53,8 @@ export default function Dashboard() {
             to="/explore-courses"
             className="flex items-center p-4 bg-white shadow-md rounded-2xl hover:bg-gray-50"
           >
-            <div className="p-3 mr-4 bg-red-100 rounded-full">
-              <FaUserGraduate className="text-xl text-red-500" />
+            <div className="p-3 mr-4 bg-teal-100 rounded-full">
+              <FaUserGraduate className="text-xl text-teal-600" />
             </div>
             <div>
               <h4 className="font-semibold text-gray-800">Explore Courses</h4>
@@ -67,8 +67,8 @@ export default function Dashboard() {
             to="/government-exams"
             className="flex items-center p-4 bg-white shadow-md rounded-2xl hover:bg-gray-50"
           >
-            <div className="p-3 mr-4 bg-red-100 rounded-full">
-              <FaBook className="text-xl text-red-500" />
+            <div className="p-3 mr-4 bg-teal-100 rounded-full">
+              <FaBook className="text-xl text-teal-600" />
             </div>
             <div>
               <h4 className="font-semibold text-gray-800">Government Exams</h4>
@@ -83,8 +83,8 @@ export default function Dashboard() {
             to="/counselling"
             className="flex items-center p-4 bg-white shadow-md rounded-2xl hover:bg-gray-50"
           >
-            <div className="p-3 mr-4 bg-red-100 rounded-full">
-              <FaFutbol className="text-xl text-red-500" />
+            <div className="p-3 mr-4 bg-teal-100 rounded-full">
+              <FaFutbol className="text-xl text-teal-600" />
             </div>
             <div>
               <h4 className="font-semibold text-gray-800">Counselling Details</h4>
@@ -95,6 +95,9 @@ export default function Dashboard() {
           </Link>
         </div>
       </div>
+
+      {/* Extra space at bottom for mobile footer */}
+      <div className="h-24"></div>
     </div>
   );
 }

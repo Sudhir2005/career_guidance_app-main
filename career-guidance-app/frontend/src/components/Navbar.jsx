@@ -30,7 +30,6 @@ export default function Navbar() {
     navigate("/login");
   };
 
-  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -44,38 +43,49 @@ export default function Navbar() {
   return (
     <>
       {/* Top Navbar */}
-      <div className="sticky top-0 z-40 flex items-center justify-between px-6 py-4 mb-4 shadow-md bg-white/30 backdrop-blur-md rounded-b-2xl">
-        <h1 className="text-4xl font-extrabold tracking-wide text-transparent gryffindor-logo bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text drop-shadow-lg">
-          Career Guide
-        </h1>
-
+      <div className="relative sticky top-0 z-40 flex items-center justify-center px-6 py-4 mb-4 shadow-md bg-white/40 backdrop-blur-md rounded-b-2xl">
+        {/* Sidebar button (left) */}
         <button
-          className="p-2 text-gray-800 transition-transform duration-300 rounded-full shadow-lg bg-white/70 hover:text-indigo-600 hover:scale-110 md:hidden"
+          className="absolute p-2 text-gray-800 transition-transform duration-300 rounded-full shadow-lg left-6 bg-white/70 hover:text-teal-600 hover:scale-110 md:hidden"
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
           <FaBars size={20} />
         </button>
+
+        {/* Logo + Title */}
+        <div className="flex items-center gap-3">
+          <img
+            src="career-guidance-app\frontend\src\assets\logo.svg" // <-- Replace with your logo path
+            alt="Logo"
+            className="object-contain w-auto h-12"
+          />
+          <h1 className="text-4xl font-extrabold tracking-wide text-teal-600 drop-shadow-lg">
+            CareerGuide
+          </h1>
+        </div>
       </div>
 
       {/* Overlay */}
-      {sidebarOpen && <div className="fixed inset-0 z-30 bg-black/20 md:hidden"></div>}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-30 bg-black/30 md:hidden"></div>
+      )}
 
       {/* Sidebar */}
       <aside
         ref={sidebarRef}
-        className={`fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white shadow-2xl transform transition-transform duration-300 z-50 md:translate-x-0 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white shadow-2xl transform transition-transform duration-300 z-50 md:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Profile Section */}
-        <div className="flex flex-col items-center py-8 border-b border-gray-700 shadow-md bg-gradient-to-r from-purple-800 to-indigo-900 rounded-br-3xl">
+        <div className="flex flex-col items-center py-8 bg-teal-600 border-b border-gray-600 shadow-md rounded-br-3xl">
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"
             alt="Profile"
-            className="w-24 h-24 border-4 border-pink-500 rounded-full shadow-lg"
+            className="w-24 h-24 border-4 border-white rounded-full shadow-lg"
           />
           <h2 className="mt-3 text-lg font-bold tracking-wide">John Doe</h2>
-          <p className="text-sm italic text-gray-300">Software Engineer</p>
+          <p className="text-sm italic text-gray-200">Software Engineer</p>
         </div>
 
         {/* Nav Links */}
@@ -87,8 +97,8 @@ export default function Navbar() {
               onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                 location.pathname === item.to
-                  ? "bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-semibold shadow-md"
-                  : "hover:bg-white/10 hover:shadow-lg"
+                  ? "bg-teal-600 text-white font-semibold shadow-md"
+                  : "hover:bg-gray-700 hover:shadow-lg"
               }`}
             >
               <span className="text-base">{item.icon}</span>
@@ -101,7 +111,7 @@ export default function Navbar() {
         <div className="absolute w-full px-5 bottom-6">
           <button
             onClick={handleLogout}
-            className="flex items-center w-full gap-3 px-4 py-3 text-left transition rounded-lg hover:bg-white/10"
+            className="flex items-center w-full gap-3 px-4 py-3 text-left transition rounded-lg hover:bg-gray-700"
           >
             <FaSignOutAlt /> <span className="text-sm">Logout</span>
           </button>
@@ -109,7 +119,7 @@ export default function Navbar() {
       </aside>
 
       {/* Mobile Bottom Navbar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-10 flex items-center justify-around py-3 text-white shadow-lg bg-gradient-to-r from-pink-600 via-purple-700 to-indigo-700 backdrop-blur-md rounded-t-2xl md:hidden">
+      <nav className="fixed bottom-0 left-0 right-0 z-10 flex items-center justify-around py-3 text-white bg-gray-800 shadow-lg backdrop-blur-md rounded-t-2xl md:hidden">
         {navItems.map((item) => (
           <Link
             key={item.to}
@@ -117,7 +127,7 @@ export default function Navbar() {
             onClick={() => setSidebarOpen(false)}
             className={`flex flex-col items-center text-xs px-3 py-2 rounded-lg transition-all duration-300 ${
               location.pathname === item.to
-                ? "bg-white/20 text-white font-semibold scale-110 shadow-md"
+                ? "bg-teal-600 text-white font-semibold scale-110 shadow-md"
                 : "text-white hover:text-gray-300"
             }`}
           >

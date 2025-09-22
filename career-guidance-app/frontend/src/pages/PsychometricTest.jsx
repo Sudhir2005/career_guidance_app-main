@@ -16,6 +16,26 @@ const sampleQuestions = [
     question: "What kind of work environment do you prefer?",
     options: ["Structured", "Flexible", "Competitive", "Collaborative"],
   },
+  {
+    _id: "q4",
+    question: "How do you usually solve problems?",
+    options: ["Analyzing logically", "Brainstorming creatively", "Seeking advice", "Experimenting"],
+  },
+  {
+    _id: "q5",
+    question: "Which type of tasks do you enjoy more?",
+    options: ["Working with data", "Working with people", "Hands-on activities", "Planning & organizing"],
+  },
+  {
+    _id: "q6",
+    question: "How do you prefer learning new things?",
+    options: ["Reading", "Watching tutorials", "Hands-on practice", "Group discussions"],
+  },
+  {
+    _id: "q7",
+    question: "Which describes your personality best?",
+    options: ["Analytical", "Creative", "Practical", "Visionary"],
+  },
 ];
 
 export default function PsychometricTest() {
@@ -57,7 +77,7 @@ export default function PsychometricTest() {
     <div className="max-w-4xl p-6 mx-auto mt-10">
       {/* Start Screen */}
       {!startTest && !showResult && (
-        <div className="p-10 text-center shadow-xl bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-500 rounded-3xl animate-fade-in">
+        <div className="p-10 text-center shadow-xl bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 rounded-3xl animate-fade-in">
           <h2 className="mb-6 text-4xl font-bold text-white drop-shadow-lg">
             Ready to Discover Your Strengths?
           </h2>
@@ -67,7 +87,7 @@ export default function PsychometricTest() {
           </p>
           <button
             onClick={handleStartTest}
-            className="px-8 py-4 text-lg font-semibold text-white transition-transform duration-300 bg-yellow-500 rounded-full shadow-lg hover:scale-105 hover:bg-yellow-400 animate-bounce"
+            className="px-8 py-4 text-lg font-semibold text-white transition-transform duration-300 bg-gray-700 rounded-full shadow-lg hover:scale-105 hover:bg-gray-600"
           >
             Start Test
           </button>
@@ -84,7 +104,7 @@ export default function PsychometricTest() {
           {/* Progress Bar */}
           <div className="h-2 mb-6 bg-gray-200 rounded-full">
             <div
-              className="h-2 transition-all duration-300 bg-indigo-600 rounded-full"
+              className="h-2 transition-all duration-300 bg-teal-500 rounded-full"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -98,7 +118,7 @@ export default function PsychometricTest() {
               <button
                 key={opt}
                 onClick={() => handleAnswer(opt)}
-                className="px-6 py-3 text-white transition-transform duration-300 bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 hover:scale-105"
+                className="px-6 py-3 text-white transition-transform duration-300 bg-teal-500 rounded-lg shadow-md hover:bg-teal-600 hover:scale-105"
               >
                 {opt}
               </button>
@@ -109,7 +129,7 @@ export default function PsychometricTest() {
 
       {/* Result Screen */}
       {showResult && (
-        <div className="p-8 text-center text-white shadow-xl bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-500 rounded-2xl animate-fade-in">
+        <div className="p-8 text-center text-white shadow-xl bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 rounded-2xl animate-fade-in">
           <h2 className="mb-6 text-3xl font-bold drop-shadow-lg">
             Your Test Results
           </h2>
@@ -127,7 +147,7 @@ export default function PsychometricTest() {
           </ul>
           <button
             onClick={handleRestart}
-            className="px-8 py-3 text-lg font-semibold text-purple-700 transition-transform duration-300 bg-white rounded-full shadow-lg hover:scale-105 hover:bg-gray-100"
+            className="px-8 py-3 text-lg font-semibold text-teal-700 transition-transform duration-300 bg-white rounded-full shadow-lg hover:scale-105 hover:bg-gray-100"
           >
             Restart Test
           </button>
