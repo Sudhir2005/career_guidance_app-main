@@ -14,6 +14,8 @@ import NotFound from "./pages/NotFound";
 import ExtraCurriculars from "./pages/ExtraCurriculars";
 import Aichat from "./pages/Aichat";
 import EducationLevelSelector from "./pages/EducationLevelSelector";
+import ExploreColleges from "./pages/ExploreColleges";
+import ExploreCourses from "./pages/ExploreCourses";
 
 function App() {
   const location = useLocation();
@@ -46,6 +48,8 @@ function App() {
           <Route path="/extracurriculars" element={<ExtraCurriculars />} />
           <Route path="/aichat" element={<Aichat />} />
           <Route path="/education" element={<EducationLevelSelector />} />
+          <Route path="/explore-colleges" element={<ExploreColleges />} />
+          <Route path="/explore-courses" element={<ExploreCourses />} />
 
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />
