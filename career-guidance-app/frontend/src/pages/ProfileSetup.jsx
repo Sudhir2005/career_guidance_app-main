@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import React, { useRef, useState } from "react";
 
 export default function ProfileSetup({ updateSidebarUser }) {
   const [form, setForm] = useState({
@@ -14,43 +13,6 @@ export default function ProfileSetup({ updateSidebarUser }) {
   const [errors, setErrors] = useState({});
   const [saved, setSaved] = useState(false);
   const fileInputRef = useRef(null);
-
-  // Load profile from backend
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-
-        const res = await axios.get("http://localhost:5000/api/profile/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        // Format date to yyyy-MM-dd
-        const dobFormatted = res.data.dob
-          ? new Date(res.data.dob).toISOString().split("T")[0]
-          : "";
-
-        setForm({
-          ...res.data,
-          dob: dobFormatted,
-        });
-        if (res.data.imageData) setImagePreview(res.data.imageData);
-
-        // Update sidebar if passed as prop
-        if (updateSidebarUser) {
-          updateSidebarUser({
-            name: res.data.name,
-            career: res.data.career,
-            imageUrl: res.data.imageData,
-          });
-        }
-      } catch (err) {
-        console.error("Failed to load profile:", err);
-      }
-    };
-    fetchProfile();
-  }, []);
 
   const validate = () => {
     const e = {};
@@ -125,37 +87,14 @@ export default function ProfileSetup({ updateSidebarUser }) {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const v = validate();
     setErrors(v);
     if (Object.keys(v).length) return;
 
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setErrors({ submit: "User not authenticated." });
-      return;
-    }
-
-    const toSave = {
-      name: form.name,
-      email: form.email,
-      career: form.career === "Other" ? form.otherCareer : form.career,
-      dob: form.dob,
-      bio: form.bio,
-      imageData: imagePreview || null,
-    };
-
-    try {
-      await axios.put("http://localhost:5000/api/profile/update", toSave, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2200);
-    } catch (err) {
-      console.error("Error saving profile:", err.response || err);
-      setErrors({ submit: "Failed to save profile to server." });
-    }
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2200);
   };
 
   const handleReset = () => {
@@ -186,7 +125,9 @@ export default function ProfileSetup({ updateSidebarUser }) {
         </div>
         <h3 className="text-lg font-bold">{form.name || "Your Name"}</h3>
         <p className="text-sm text-gray-600">{form.email || "Your Email"}</p>
-        <p className="text-sm text-gray-600">{form.career || "Your Career Interest"}</p>
+        <p className="text-sm text-gray-600">
+          {form.career === "Other" ? form.otherCareer : form.career || "Your Career Interest"}
+        </p>
         <p className="text-xs text-gray-500">{form.bio ? form.bio.slice(0, 50) + "..." : ""}</p>
       </div>
 
@@ -194,7 +135,11 @@ export default function ProfileSetup({ updateSidebarUser }) {
       <div className="flex-1 p-6 bg-white shadow rounded-2xl">
         <h2 className="mb-6 text-2xl font-bold text-gray-800">Profile Setup</h2>
 
-        {saved && <div className="p-3 mb-4 text-sm text-green-800 bg-green-100 rounded">Profile saved!</div>}
+        {saved && (
+          <div className="p-3 mb-4 text-sm text-green-800 bg-green-100 rounded">
+            Profile saved!
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6" noValidate>
           {/* Photo */}
@@ -316,8 +261,6 @@ export default function ProfileSetup({ updateSidebarUser }) {
             />
           </div>
 
-          {errors.submit && <p className="text-sm text-red-600">{errors.submit}</p>}
-
           <div className="flex justify-end gap-3">
             <button
               type="button"
@@ -327,7 +270,10 @@ export default function ProfileSetup({ updateSidebarUser }) {
               Reset
             </button>
 
-            <button type="submit" className="px-6 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">
+            <button
+              type="submit"
+              className="px-6 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700"
+            >
               Save Profile
             </button>
           </div>

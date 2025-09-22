@@ -20,13 +20,13 @@ export default function Counselling() {
       <div className="flex flex-col gap-4 w-full max-w-xs">
         <Link
           to="/previous-counselling"
-          className="py-3 text-center text-white bg-blue-500 rounded-xl hover:bg-blue-600 transition"
+          className="py-3 text-center !text-white no-underline bg-blue-500 rounded-xl hover:bg-blue-600 transition"
         >
           View Previous Year Counselling Databases
         </Link>
         <Link
           to="/mock-counselling"
-          className="py-3 text-center text-white bg-green-500 rounded-xl hover:bg-green-600 transition"
+          className="py-3 text-center !text-white no-underline bg-green-500 rounded-xl hover:bg-green-600 transition"
         >
           Take Our Mock Counselling
         </Link>

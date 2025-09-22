@@ -17,6 +17,10 @@ import EducationLevelSelector from "./pages/EducationLevelSelector";
 import ExploreColleges from "./pages/ExploreColleges";
 import ExploreCourses from "./pages/ExploreCourses";
 import Counselling from "./pages/Counselling";
+import GovExams from "./pages/GovExams";
+import ExtraEx from "./pages/ExtraEx";
+
+
 
 function App() {
   const location = useLocation();
@@ -52,6 +56,10 @@ function App() {
           <Route path="/explore-colleges" element={<ExploreColleges />} />
           <Route path="/explore-courses" element={<ExploreCourses />} />
           <Route path="/counselling" element={<Counselling />} />
+          <Route path="/government-exams" element={<GovExams />} />
+           <Route path="/extra-ex" element={<ExtraEx />} />
+
+          
 
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />

@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios"; 
 import {
   FaTachometerAlt,
   FaUserGraduate,
@@ -12,57 +11,26 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
-export default function Navbar({ sidebarUserUpdater }) {
+export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
 
-  const [user, setUser] = useState({ name: "", career: "", imageUrl: "" });
-
   const navItems = [
     { to: "/dashboard", label: "Dashboard", icon: <FaTachometerAlt /> },
-    { to: "/careers", label: "Careers", icon: <FaUserGraduate /> },
     { to: "/tests", label: "Tests", icon: <FaClipboardList /> },
+    { to: "/extracurriculars", label: "Extracurriculars", icon: <FaUserGraduate /> },
     { to: "/resume", label: "Resume", icon: <FaFileAlt /> },
     { to: "/opportunities", label: "Jobs", icon: <FaBriefcase /> },
     { to: "/profile-setup", label: "Profile", icon: <FaUserCircle /> },
   ];
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
     navigate("/login");
   };
 
-  // ✅ Fetch profile with Axios
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-
-        const res = await axios.get("http://localhost:5000/api/profile/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setUser({
-          name: res.data.name || "",
-          career: res.data.career || "",
-          imageUrl: res.data.imageUrl || res.data.imageData || "",
-        });
-
-        if (sidebarUserUpdater) sidebarUserUpdater(setUser);
-      } catch (err) {
-        console.error("Error fetching profile:", err);
-      }
-    };
-
-    fetchProfile();
-  }, []);
-
-  // Close sidebar if clicking outside
+  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -99,18 +67,15 @@ export default function Navbar({ sidebarUserUpdater }) {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Profile */}
+        {/* Profile Section */}
         <div className="flex flex-col items-center py-8 border-b border-gray-700 shadow-md bg-gradient-to-r from-purple-800 to-indigo-900 rounded-br-3xl">
           <img
-            src={
-              user.imageUrl ||
-              "https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"
-            }
+            src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"
             alt="Profile"
             className="w-24 h-24 border-4 border-pink-500 rounded-full shadow-lg"
           />
-          <h2 className="mt-3 text-lg font-bold tracking-wide">{user.name || "Loading..."}</h2>
-          <p className="text-sm italic text-gray-300">{user.career || "Fetching career..."}</p>
+          <h2 className="mt-3 text-lg font-bold tracking-wide">John Doe</h2>
+          <p className="text-sm italic text-gray-300">Software Engineer</p>
         </div>
 
         {/* Nav Links */}
