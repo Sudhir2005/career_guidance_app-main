@@ -3,18 +3,16 @@ import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulated login
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Simulate login delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Redirect directly to dashboard (simulation only)
+    // Redirect to dashboard regardless of input
     navigate("/dashboard");
     setLoading(false);
   };
@@ -29,12 +27,12 @@ export default function Login() {
             className="w-32 h-32 animate-bounce"
           />
           <p className="mt-6 text-lg font-bold tracking-wider text-white animate-pulse">
-            Conjuring Your Dashboard...
+            Loading...
           </p>
         </div>
       )}
 
-      <div className="relative z-10 w-full max-w-md p-10 border shadow-2xl bg-white/20 backdrop-blur-md border-white/30 rounded-3xl">
+      <div className="relative z-10 w-full max-w-md p-10 mx-4 border shadow-2xl bg-white/20 backdrop-blur-md border-white/30 rounded-3xl">
         <h2 className="mb-4 text-3xl font-extrabold text-center text-white drop-shadow-lg">
           Welcome Back
         </h2>
@@ -47,11 +45,8 @@ export default function Login() {
             <label className="block mb-1 font-medium text-white/90">Email</label>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
-              required
             />
           </div>
 
@@ -59,11 +54,8 @@ export default function Login() {
             <label className="block mb-1 font-medium text-white/90">Password</label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               className="w-full px-5 py-3 text-white transition border rounded-xl border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-teal-400"
-              required
             />
           </div>
 
@@ -77,7 +69,10 @@ export default function Login() {
 
         <p className="mt-6 text-center text-white/80">
           Don't have an account?{" "}
-          <Link to="/register" className="font-semibold text-white underline transition hover:text-teal-300">
+          <Link
+            to="/register"
+            className="font-semibold text-white underline transition hover:text-teal-300"
+          >
             Register
           </Link>
         </p>

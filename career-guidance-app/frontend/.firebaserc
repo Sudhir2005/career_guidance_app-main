@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "career-guidance-app-c7f67"
-  }
+  },
+  "targets": {
+    "career-guidance-app-c7f67": {
+      "hosting": {
+        "careerguidance": [
+          "careerguidance"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

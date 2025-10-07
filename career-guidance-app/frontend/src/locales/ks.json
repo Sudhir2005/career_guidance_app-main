@@ -1,0 +1,95 @@
+{
+  "login": {
+    "title": "لاگ ان",
+    "role": "کردار چُناؤ",
+    "student": "شاگرد",
+    "teacher": "استاد",
+    "placeholderEmail": "اپنا ای میل درج کریں",
+    "placeholderPassword": "اپنا پاسورڈ درج کریں",
+    "loginBtn": "لاگ ان",
+    "forgotPassword": "پاسورڈ بھل گئے؟"
+  },
+  "navbar": {
+    "home": "ہوم",
+    "profile": "پروفائل",
+    "exams": "امتحانات",
+    "opportunities": "مواقع",
+    "resumeBuilder": "ریزیومے بلڈر",
+    "logout": "لاگ آؤٹ"
+  },
+  "extraCurriculars": {
+    "title": "اپنی ہور دلچسپیوں کو تلاش کریں!",
+    "placeholder": "مثلاً: گٹار کلاس",
+    "searchBtn": "تلاش کریں"
+  },
+  "extraEx": {
+    "resultsFor": "\"{{query}}\" کے لیے نتائج",
+    "offline": "آف لائن کلاس",
+    "online": "آن لائن کلاس"
+  },
+  "govExams": {
+    "title": "سرکاری امتحانات",
+    "searchPlaceholder": "امتحانات تلاش کریں..."
+  },
+  "opportunities": {
+    "title": "✨ مواقع",
+    "applyNow": "اب درخواست دیں →",
+    "applying": "درخواست جاری ہے..."
+  },
+  "profileSetup": {
+    "title": "پروفائل سیٹ اپ",
+    "savedMsg": "پروفائل محفوظ ہو گئی!",
+    "photo": "پروفائل فوٹو",
+    "remove": "ہٹائیں",
+    "fullName": "پورا نام",
+    "email": "ای میل",
+    "career": "کریئر دلچسپی",
+    "other": "براہ کرم وضاحت کریں",
+    "dob": "تاریخ پیدائش",
+    "bio": "اپنے بارے میں",
+    "reset": "ری سیٹ کریں",
+    "save": "پروفائل محفوظ کریں"
+  },
+  "psychometricTest": {
+    "startTitle": "اپنی مہارتیں جاننے کے لیے تیار ہیں؟",
+    "startDesc": "ہمارا پیشہ ورانہ سائیکومیٹرک ٹیسٹ کریں اور اپنی صلاحیتوں اور شخصیت کے بارے میں جانیں۔",
+    "startBtn": "ٹیسٹ شروع کریں",
+    "question": "سوال {{num}} میں سے {{total}}",
+    "restart": "ٹیسٹ دوبارہ شروع کریں",
+    "resultTitle": "آپ کے ٹیسٹ کے نتائج",
+    "genericSuggestion": "آپ نے سائیکومیٹرک ٹیسٹ مکمل کر لیا ہے! یہاں ایک عام کریئر مشورہ ہے:"
+  },
+  "resumeBuilder": {
+    "title": "✨ اپنا ریزیومے بنائیں",
+    "desc": "ایک جدید ٹول جو منٹوں میں پروفیشنل ریزیومے بناتا ہے۔",
+    "fullName": "پورا نام",
+    "email": "ای میل پتہ",
+    "phone": "فون نمبر",
+    "education": "تعلیم",
+    "experience": "کام کا تجربہ",
+    "skills": "مہارتیں",
+    "projects": "منصوبے",
+    "resumeStyle": "ریزیومے اسٹائل",
+    "submit": "ریزیومے ڈاؤن لوڈ کریں",
+    "generating": "تیار کیا جا رہا ہے..."
+  },
+  "buttons": {
+    "next": "اگلا",
+    "previous": "پچھلا",
+    "submit": "جمع کریں",
+    "cancel": "منسوخ کریں",
+    "edit": "ترمیم کریں",
+    "viewMore": "مزید دیکھیں"
+  },
+  "errors": {
+    "required": "یہ فیلڈ ضروری ہے۔",
+    "invalidEmail": "براہ کرم درست ای میل درج کریں۔",
+    "imageType": "براہ کرم درست امیج فائل منتخب کریں۔",
+    "imageSize": "تصویر بہت بڑی ہے (زیادہ سے زیادہ 2MB)۔"
+  },
+  "messages": {
+    "success": "عمل کامیاب!",
+    "loading": "لوڈ ہو رہا ہے...",
+    "noResults": "کوئی نتائج نہیں ملے۔"
+  }
+}

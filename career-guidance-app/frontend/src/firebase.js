@@ -12,8 +12,8 @@ const firebaseConfig = {
   projectId: "career-guidance-app-c7f67",
   storageBucket: "career-guidance-app-c7f67.firebasestorage.app",
   messagingSenderId: "477916587719",
-  appId: "1:477916587719:web:e6c4b2494543f1138200e2",
-  measurementId: "G-TLR80G0E8Y"
+  appId: "1:477916587719:web:87cb3a6fd03c439b8200e2",
+  measurementId: "G-NH71MRZVKF"
 };
 
 // Initialize Firebase

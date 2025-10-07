@@ -1,0 +1,95 @@
+{
+  "login": {
+    "title": "Login",
+    "role": "Select Role",
+    "student": "Student",
+    "teacher": "Teacher",
+    "placeholderEmail": "Enter your email",
+    "placeholderPassword": "Enter your password",
+    "loginBtn": "Login",
+    "forgotPassword": "Forgot Password?"
+  },
+  "navbar": {
+    "home": "Home",
+    "profile": "Profile",
+    "exams": "Exams",
+    "opportunities": "Opportunities",
+    "resumeBuilder": "Resume Builder",
+    "logout": "Logout"
+  },
+  "extraCurriculars": {
+    "title": "Explore Your Other Interests!",
+    "placeholder": "Eg. Guitar class",
+    "searchBtn": "Search"
+  },
+  "extraEx": {
+    "resultsFor": "Results for \"{{query}}\"",
+    "offline": "Offline Classes",
+    "online": "Online Classes"
+  },
+  "govExams": {
+    "title": "Government Exams",
+    "searchPlaceholder": "Search exams..."
+  },
+  "opportunities": {
+    "title": "✨ Opportunities",
+    "applyNow": "Apply Now →",
+    "applying": "Applying..."
+  },
+  "profileSetup": {
+    "title": "Profile Setup",
+    "savedMsg": "Profile saved!",
+    "photo": "Profile Photo",
+    "remove": "Remove",
+    "fullName": "Full Name",
+    "email": "Email",
+    "career": "Career Interest",
+    "other": "Please specify",
+    "dob": "Date of Birth",
+    "bio": "About You",
+    "reset": "Reset",
+    "save": "Save Profile"
+  },
+  "psychometricTest": {
+    "startTitle": "Ready to Discover Your Strengths?",
+    "startDesc": "Take our professional psychometric test and gain insights about your skills and personality.",
+    "startBtn": "Start Test",
+    "question": "Question {{num}} of {{total}}",
+    "restart": "Restart Test",
+    "resultTitle": "Your Test Results",
+    "genericSuggestion": "You have completed the psychometric test! Here's a generic career suggestion:"
+  },
+  "resumeBuilder": {
+    "title": "✨ Build Your Resume",
+    "desc": "A modern tool to create a professional resume in minutes.",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "education": "Education",
+    "experience": "Work Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "resumeStyle": "Resume Style",
+    "submit": "Download Resume",
+    "generating": "Generating..."
+  },
+  "buttons": {
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "viewMore": "See More"
+  },
+  "errors": {
+    "required": "This field is required.",
+    "invalidEmail": "Please enter a valid email.",
+    "imageType": "Please select a valid image file.",
+    "imageSize": "Image too large (max 2MB)."
+  },
+  "messages": {
+    "success": "Operation successful!",
+    "loading": "Loading...",
+    "noResults": "No results found."
+  }
+}

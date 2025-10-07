@@ -46,10 +46,10 @@ export default function ExploreColleges() {
         {filterColleges(primaryColleges).map((college, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center p-4 bg-gray-50 rounded-xl shadow hover:shadow-md transition"
+            className="flex flex-col items-center p-4 transition shadow bg-gray-50 rounded-xl hover:shadow-md"
           >
             <FaUniversity className="mb-2 text-3xl text-blue-600" />
-            <p className="text-sm font-medium text-gray-700 text-center">
+            <p className="text-sm font-medium text-center text-gray-700">
               {college}
             </p>
           </div>
@@ -64,10 +64,10 @@ export default function ExploreColleges() {
         {filterColleges(secondaryColleges).map((college, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center p-4 bg-gray-50 rounded-xl shadow hover:shadow-md transition"
+            className="flex flex-col items-center p-4 transition shadow bg-gray-50 rounded-xl hover:shadow-md"
           >
             <FaUniversity className="mb-2 text-3xl text-green-600" />
-            <p className="text-sm font-medium text-gray-700 text-center">
+            <p className="text-sm font-medium text-center text-gray-700">
               {college}
             </p>
           </div>

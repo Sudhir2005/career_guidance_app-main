@@ -30,12 +30,12 @@ export default function Register() {
             className="w-32 h-32 animate-bounce"
           />
           <p className="mt-6 text-lg font-bold tracking-wider text-white animate-pulse">
-            Summoning Your Dashboard...
+            Loading Your Dashboard...
           </p>
         </div>
       )}
 
-      <div className="relative z-10 w-full max-w-md p-10 border shadow-2xl bg-white/20 backdrop-blur-md border-white/30 rounded-3xl">
+      <div className="relative z-10 w-full max-w-md p-10 mx-4 border shadow-2xl bg-white/20 backdrop-blur-md border-white/30 rounded-3xl">
         <h2 className="mb-4 text-3xl font-extrabold text-center text-white drop-shadow-lg">
           Create Account
         </h2>

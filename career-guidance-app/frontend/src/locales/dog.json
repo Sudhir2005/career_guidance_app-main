@@ -1,0 +1,95 @@
+{
+  "login": {
+    "title": "लॉगिन",
+    "role": "भूमिका चुनो",
+    "student": "विद्यार्थी",
+    "teacher": "अध्यापक",
+    "placeholderEmail": "अपना ईमेल लिखो",
+    "placeholderPassword": "अपना पासवर्ड लिखो",
+    "loginBtn": "लॉगिन",
+    "forgotPassword": "पासवर्ड भूल गए?"
+  },
+  "navbar": {
+    "home": "होम",
+    "profile": "प्रोफ़ाइल",
+    "exams": "परीक्षाएं",
+    "opportunities": "अवसर",
+    "resumeBuilder": "रिज़्यूमे बिल्डर",
+    "logout": "लॉगआउट"
+  },
+  "extraCurriculars": {
+    "title": "अपणी होर रुचियां खोजो!",
+    "placeholder": "जैसे: गिटार क्लास",
+    "searchBtn": "खोजो"
+  },
+  "extraEx": {
+    "resultsFor": "\"{{query}}\" खां परिणाम",
+    "offline": "ऑफ़लाइन क्लास",
+    "online": "ऑनलाइन क्लास"
+  },
+  "govExams": {
+    "title": "सरकारी परीक्षाएं",
+    "searchPlaceholder": "परीक्षाओं खोजो..."
+  },
+  "opportunities": {
+    "title": "✨ अवसर",
+    "applyNow": "अभी आवेदन करो →",
+    "applying": "आवेदन जारी..."
+  },
+  "profileSetup": {
+    "title": "प्रोफ़ाइल सेटअप",
+    "savedMsg": "प्रोफ़ाइल सहेजी गई!",
+    "photo": "प्रोफ़ाइल फोटो",
+    "remove": "हटाओ",
+    "fullName": "पूरा नाम",
+    "email": "ईमेल",
+    "career": "करियर रुचि",
+    "other": "कृपया बताओ",
+    "dob": "जन्म तिथि",
+    "bio": "अपने बारे में",
+    "reset": "रीसेट",
+    "save": "प्रोफ़ाइल सहेजें"
+  },
+  "psychometricTest": {
+    "startTitle": "अपणी ताकत जानण खां तयार हो?",
+    "startDesc": "हमारा प्रोफेशनल साइकोमेट्रिक टेस्ट करो अते अपने हुनर अते व्यक्तित्व बारे जाणो।",
+    "startBtn": "टेस्ट शुरू करो",
+    "question": "सवाल {{num}} में से {{total}}",
+    "restart": "टेस्ट दुबारा शुरू करो",
+    "resultTitle": "आपके टेस्ट नतीजे",
+    "genericSuggestion": "तुस्सी साइकोमेट्रिक टेस्ट पूरा कर लियो! एथे एक सामान्य करियर सुझाव है:"
+  },
+  "resumeBuilder": {
+    "title": "✨ अपना रिज़्यूमे बनाओ",
+    "desc": "एक आधुनिक टूल जो मिनटों में पेशेवर रिज़्यूमे बनावे।",
+    "fullName": "पूरा नाम",
+    "email": "ईमेल पता",
+    "phone": "फोन नंबर",
+    "education": "शिक्षा",
+    "experience": "काम का अनुभव",
+    "skills": "कौशल",
+    "projects": "प्रोजेक्ट्स",
+    "resumeStyle": "रिज़्यूमे स्टाइल",
+    "submit": "रिज़्यूमे डाउनलोड करो",
+    "generating": "तैयार हो रहा है..."
+  },
+  "buttons": {
+    "next": "अगला",
+    "previous": "पिछला",
+    "submit": "सबमिट",
+    "cancel": "रद्द करो",
+    "edit": "संपादित करो",
+    "viewMore": "अधिक देखो"
+  },
+  "errors": {
+    "required": "ए फील्ड जरूरी है।",
+    "invalidEmail": "कृपया सही ईमेल लिखो।",
+    "imageType": "कृपया सही इमेज फाइल चुनो।",
+    "imageSize": "इमेज बहुत बड़ी है (ज्यादा 2MB)।"
+  },
+  "messages": {
+    "success": "सफल!",
+    "loading": "लोड हो रहा है...",
+    "noResults": "कोई परिणाम नहीं मिला।"
+  }
+}

@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 // Pages
@@ -19,14 +19,13 @@ import ExploreCourses from "./pages/ExploreCourses";
 import Counselling from "./pages/Counselling";
 import GovExams from "./pages/GovExams";
 import ExtraEx from "./pages/ExtraEx";
-
-
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const location = useLocation();
 
   // Routes where Navbar should NOT appear
-  const authRoutes = ["/login", "/register"];
+  const authRoutes = ["/", "/login", "/register"];
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -34,14 +33,14 @@ function App() {
       {!authRoutes.includes(location.pathname) && <Navbar />}
 
       {/* Main content area */}
-      <main className="flex-grow p-6">
+      <main className="flex-grow p-0">
         <Routes>
+          {/* Landing Page (Static Logo + Buttons) */}
+          <Route path="/" element={<LandingPage />} />
+
           {/* Authentication */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
-          {/* Redirect root to login */}
-          <Route path="/" element={<Navigate to="/login" replace />} />
 
           {/* Core Routes */}
           <Route path="/dashboard" element={<Dashboard />} />
@@ -57,9 +56,7 @@ function App() {
           <Route path="/explore-courses" element={<ExploreCourses />} />
           <Route path="/counselling" element={<Counselling />} />
           <Route path="/government-exams" element={<GovExams />} />
-           <Route path="/extra-ex" element={<ExtraEx />} />
-
-          
+          <Route path="/extra-ex" element={<ExtraEx />} />
 
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />

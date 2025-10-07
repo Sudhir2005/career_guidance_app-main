@@ -11,6 +11,11 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
+
+// Import your SVG logo
+import goalLogo from "../assets/goal.svg"; // Make sure goal.svg is in src/assets/
+
+
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,7 +32,7 @@ export default function Navbar() {
   ];
 
   const handleLogout = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -55,11 +60,11 @@ export default function Navbar() {
         {/* Logo + Title */}
         <div className="flex items-center gap-3">
           <img
-            src="career-guidance-app\frontend\src\assets\logo.svg" // <-- Replace with your logo path
+            src={goalLogo}
             alt="Logo"
-            className="object-contain w-auto h-12"
+            className="object-contain w-10 h-10" // smaller logo
           />
-          <h1 className="text-4xl font-extrabold tracking-wide text-teal-600 drop-shadow-lg">
+          <h1 className="text-2xl font-extrabold tracking-wide text-teal-600 md:text-3xl drop-shadow-lg">
             CareerGuide
           </h1>
         </div>
